@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS cwiczenia</title>
+</head>
+
+<body>
+
+    <script>
+
+
+        //                      SPRAWDZENIE WIELOKROTNOSCI LICZB
+
+        var max = prompt("podaj ilosc liczb")
+        var tablica = new Array(max);
+        for (i = 0; i < max; i++) {
+            tablica[i] = prompt('podaj ' + (i + 1) + ' liczbe')
+        }
+
+        if (max == 2)      //czy pierwsza liczba jest wielokrotnoscia drugiej
+        {
+            if (tablica[1] % tablica[0] == 0) {
+                document.write('pierwsza liczba:  ' + tablica[0] + ' jest wielokrotnoscia drugiej liczby: ' + tablica[1])
+            }
+            else {
+                document.write('pierwsza liczba: ' + tablica[0] + ' NIE jest wielokrotnoscia drugiej liczby: ' + tablica[1])
+            }
+        }
+        else {
+            document.write("podałes liczby: " + tablica.join(", ") + '</br>')
+            for (var i in tablica) {       //wypisaniez z tablicy par liczb, w ktorych jedna z liczb jest wielokrotnoscia drugiej
+                for (var j in tablica) {
+                    if (j == i) {
+                        continue;
+                    }
+                    else if (tablica[j] % tablica[i] == 0) {
+                        document.write('liczba ' + tablica[j] + ' jest wielokrotnoscia liczby: ' + tablica[i] + "</br>")
+                    }
+                }
+            }
+
+            function sprawdzenieCzySaWielokrotnosci() { //sprawdzenie czy są w tablicy jakiekolwiek pary wielokrotności
+                for (var i in tablica) {
+                    for (var j in tablica) {
+                        if (j == i) {
+                            continue;
+                        }
+                        else if (tablica[j] % tablica[i] == 0) {
+                            return true;
+                            break;
+                        }
+                    }
+                }
+            }
+
+            if (sprawdzenieCzySaWielokrotnosci() !== true)   // wypisanie informacji jesli nie ma zadnych par wielokrotnosci
+            {
+                document.write('zadna z liczb nie jest wielokrotnoscią innej')
+            }
+        }
+    </script>
+</body>
+
+</html>

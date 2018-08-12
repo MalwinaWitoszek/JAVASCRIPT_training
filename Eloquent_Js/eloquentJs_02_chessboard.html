@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Eloquent Js</title>
+</head>
+
+<body>
+    <p>check console :)</p>
+
+    <script>
+
+        //  CHESSBOARD
+
+        // Write a program that creates a string that represents an 8×8 grid,
+        // using newline characters to separate lines. At each position of the grid
+        // there is either a space or a "#" character. The characters should form a chessboard.
+
+        // Passing this string to console.log should show something like this:
+
+        //  # # # #
+        // # # # #
+        //  # # # #
+        // # # # #
+        //  # # # #
+        // # # # #
+        //  # # # #
+        // # # # #
+
+
+        let sign = '#',
+            row = '',
+            max = prompt('podaj liczbe pol');
+
+        for (let i = 0; i < max - 1; i++) {
+            if (i % 2 === 0) { row += sign }
+            else { row += ' ' }
+        };
+
+        for (let i = 0; i < max; i++) {
+            if (i % 2 === 0) { console.log(' ' + row) }
+            else { console.log(row + ' ') }
+        }
+
+    </script>
+</body>
+
+</html>

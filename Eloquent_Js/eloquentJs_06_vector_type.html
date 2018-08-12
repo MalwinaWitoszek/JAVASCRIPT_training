@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Eloquent Js</title>
+</head>
+
+<body>
+    <p>check console :)</p>
+
+    <script>
+
+        // Write a class Vec that represents a vector in two-dimensional space.
+        // It takes x and y parameters (numbers), which it should save to properties of the same name.
+        // Give the Vec prototype two methods, plus and minus, that take another vector as a parameter
+        // and return a new vector that has the sum or difference of the two vectors’
+        // (this and the parameter) x and y values.
+        // Add a getter property length to the prototype that computes the length of the vector—that is,
+        // the distance of the point (x, y) from the origin (0, 0).
+
+        class Vec {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+            }
+
+            plus(vector) {
+                return [this.x + vector.x, this.y + vector.y]
+            }
+
+            minus(vector) {
+                return [this.x - vector.x, this.y - vector.y]
+            }
+
+            get lengthVec() {
+                return Math.round(Math.sqrt(this.x * this.x + this.y * this.y))
+            }
+        }
+
+
+        //check
+        let vector = new Vec(6, 3);
+        console.log(vector.plus({ x: 3, y: 0 }));
+        console.log(vector.minus({ x: 0, y: 2 }));
+        console.log(vector.lengthVec);
+
+        console.log(new Vec(1, 2).plus(new Vec(2, 3)));
+        console.log(new Vec(1, 2).minus(new Vec(2, 3)));
+        console.log(new Vec(3, 4).lengthVec);
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Eloquent Js</title>
+</head>
+
+<body>
+    <p>check console :)</p>
+
+    <script>
+
+        // Implement every as a function that takes an array and a predicate function as parameters. Write two versions, one using a loop and one using the some method.
+
+        const every = (array, test) => {
+            for (let element of array) {
+                if (!test(element)) {    // if the array element does not pass the test
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        const everyVersion2 = (array, test) => {
+            return (array.filter(test).length === array.length) ? true : false;
+        }
+
+
+        console.log(every([3, 4, 16], n => n < 10));
+        console.log(every([1, 3, 5], n => n < 10));
+        console.log(everyVersion2([3, 4, 16], n => n < 10));
+        console.log(everyVersion2([1, 3, 5], n => n < 10));
+
+
+    </script>
+</body>
+
+</html>

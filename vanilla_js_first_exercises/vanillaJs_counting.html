@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS cwiczenia</title>
+</head>
+
+<body>
+    <script>
+
+
+        //                  ODLICZANIE DO ZERA
+
+        var licznik = 5;
+
+        function odliczanie() {
+            document.write(licznik-- + "<br>");
+            if (licznik < 1) {
+                clearInterval(clearInt);
+                setTimeout(function () { document.write("start") }, 1000);
+
+            }
+        };
+        var clearInt = setInterval(odliczanie, 1000);
+
+
+    </script>
+</body>
+
+</html>

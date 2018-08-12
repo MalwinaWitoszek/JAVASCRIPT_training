@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS cwiczenia</title>
+</head>
+
+<body>
+    <p>check console :)</p>
+
+    <script>
+
+        //               ILE RAZY W LOSOWEJ TABLICY WYSTEPUJE NAJPOPULARNIEJSZA WARTOSC
+
+        var ileLiczb = prompt("podaj ile liczb wylosować");
+        var Wylosowana = new Array(ileLiczb);
+        var Wartosc = [], Ilosc = [];
+        var dlugosc = ileLiczb;
+
+        function Maksimum(tablica)   //znalezienie maksimum w tablicy
+        {
+            var max = tablica[0];
+            for (var i = 1; i < dlugosc; i++) {
+                max = (tablica[i] > max) ? tablica[i] : max;
+            }
+            return max;
+        }
+
+        for (i = 0; i < ileLiczb; i++)  //losowanie tablicy, o dlugosci wskazanej przez uzytkownika, ze zbioru liczb całkowitych od 0-10
+        {
+            Wylosowana[i] = Math.floor(Math.random() * 10);
+        }
+        document.write("Wylosowano tablice " + ileLiczb + " liczb:<br>[" + Wylosowana.join(', ') + "]<br>");
+        Wylosowana.sort(function (a, b) { return a - b });  //posortowanie tablicy  WYLOSOWANA
+        for (let i = 0, ilosc = 1; i < dlugosc; i++)        //sprawdzenie czy elementy wystepujace po sobie sa sobie rowne
+        {
+            if (Wylosowana[i] == Wylosowana[(i + 1)]) {
+                ilosc++;
+            }
+            else {
+                Wartosc.push(Wylosowana[i]);     //wypelnienie tablicy WARTOSC elementami tablicy WYLOSOWANA bez ich powtarzania
+                Ilosc.push(ilosc);   //wypelnienie tablicy ILOSC iloscia powtorzen elementow z tablicy WARTOSC
+                ilosc = 1;
+            }
+        }
+        var wynik = Maksimum(Ilosc);         //znaleznienie maksimum dla tablicy ILOSC
+        var indeks = Ilosc.indexOf(wynik);   //znalezienie indeksu tego maksimum dla tablicy ILOSC
+        document.write("Liczba: " + Wartosc[indeks] + " pojawia się najczesciej bo aż " + wynik + " razy")
+
+
+    </script>
+</body>
+
+</html>

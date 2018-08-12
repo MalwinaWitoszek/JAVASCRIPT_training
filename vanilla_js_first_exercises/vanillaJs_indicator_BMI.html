@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS cwiczenia</title>
+</head>
+
+<body>
+    <script>
+
+
+
+        //                                WSKAŹNIk BMI
+
+        var waga, wzrost;
+
+        function pobierzWage() {           //zebranie iformacji o wadze
+            waga = Number(prompt("podaj wage w kilogramach, pamiętaj o kropce zamiast przecinka!"));
+            sprawdzWage(waga);
+            return waga;
+        }
+        function sprawdzWage(wagaUzytkownika) {      //test czy waga jest liczba
+            if (isNaN(wagaUzytkownika)) {
+                alert("do poprawki");
+                pobierzWage();
+            }
+            else {
+                alert("zapisałem :)");
+                return wagaUzytkownika;
+            }
+        }
+        function pobierzWzrost() {        //zebranie iformacji o wzroscie
+            wzrost = Number(prompt("podaj wzrost w metrach, pamiętaj o kropce zamiast przecinka!"));
+            sprawdzWzrost(wzrost);
+            return wzrost;
+        }
+        function sprawdzWzrost(wzrostUzytkownika) {   //test czy wzrost jest liczba
+            if (isNaN(wzrostUzytkownika)) {
+                alert("do poprawki");
+                pobierzWzrost();
+            }
+            else {
+                alert("zapisałem :)");
+                return wzrostUzytkownika
+            }
+        }
+        function liczBMI(wg, wz) {        //liczenie BMI
+            var BMI = (wg / (wz * wz));
+            var wynik;
+            if (BMI >= 8.5 && BMI < 25.0) { wynik = "masz prawidlowa wage, gratulacje" }
+            else if (BMI >= 25.0) {
+                wynik = "masz nadwagę!! uważaj"
+            } else {
+                wynik = "ważysz za mało!! uważaj"
+            }
+            alert("Twoj BMI wynosi: " + BMI.toFixed(0));
+            alert(wynik);
+        }
+
+        var pobranaWaga = pobierzWage();
+        var pobranyWzrost = pobierzWzrost();
+        liczBMI(pobranaWaga, pobranyWzrost);
+
+
+    </script>
+</body>
+
+</html>

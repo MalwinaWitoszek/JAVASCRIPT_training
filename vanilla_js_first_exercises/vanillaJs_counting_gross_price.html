@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS cwiczenia</title>
+</head>
+
+<body>
+    <p>check console :)</p>
+
+    <script>
+
+        //                         COUNTING GROSS PRICE / Cena BRUTTO
+
+        function liczymy_brutto(cena, podatek) {
+            var wynik = ((1 + podatek / 100) * cena);
+            return wynik.toFixed(2);
+        }
+
+        do {
+            var netto = prompt("podaj cene netto");
+            var vat = prompt("podaj stawke vat w procentach");
+            var x = liczymy_brutto(netto, vat);
+            console.log("jesli cena netto wynosiła: " + netto + " a podatek vat wynosił: " + vat + "% to cena brutto wyniesie: " + x);
+            var again = prompt("liczymy nadal? jesli tak wpisz \"t\" jesli nie wpisz \"n\"");
+        }
+        while (again === "t");
+
+
+    </script>
+</body>
+
+</html>

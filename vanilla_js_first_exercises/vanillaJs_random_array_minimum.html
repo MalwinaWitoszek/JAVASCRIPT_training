@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS cwiczenia</title>
+</head>
+
+<body>
+    <p>check console :)</p>
+
+    <script>
+
+        //              MINIMUM FROM A RANDOM ARRAY
+
+        let arrayLength = Number(prompt('podaj ilosc elementow tablicy'))
+        let tab = new Array(arrayLength);
+        for (let i = 0; i < arrayLength; i++) {
+            tab[i] = Math.floor(Math.random() * 100) + 1;
+        }
+        function getMinFromTab(ourTable) {
+            let min = ourTable[0];
+            for (let i = 1; i < ourTable.length; i++) {
+                if (ourTable[i] <= min) {
+                    min = ourTable[i];
+                }
+            }
+            return min;
+        }
+        let minimum = getMinFromTab(tab);
+        console.log('wylosowano tablice: ' + tab);
+        console.log('minumum w tablicy wynosi: ' + minimum);
+
+    </script>
+</body>
+
+</html>

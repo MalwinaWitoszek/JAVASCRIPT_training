@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Eloquent Js</title>
+</head>
+
+<body>
+    <p>check console :)</p>
+
+    <script>
+
+        // For this exercise, write two functions, reverseArray and reverseArrayInPlace.
+        // The first, reverseArray, takes an array as argument and produces a new array
+        // that has the same elements in the inverse order. The second, reverseArrayInPlace,
+        // does what the reverse method does: it modifies the array given as argument
+        // by reversing its elements. Neither may use the standard reverse method.
+
+        // reverseArray, takes an array as argument and produces a new array that has the same elements in the inverse order.
+        function reverseArray(array) {
+            let newArray = [];
+            for (let count = 0, max = (array.length - 1); count <= max; count++) {
+                newArray[count] = array[max - count];
+            }
+            return newArray;
+        }
+
+        function reverseArrayAnotherWay(array) {
+            let newArray = [];
+            for (let count = 0, max = (array.length - 1); count <= max; count++) {
+                newArray.unshift(array[count]);
+            }
+            return newArray;
+        }
+
+        // reverseArrayInPlace does what the reverse method does: it modifies the array given as argument by reversing its elements. Neither may use the standard reverse method.
+        function reverseArrayInPlace(array) {
+            // max count is middle of array
+            for (let count = 0, max = (Math.floor((array.length - 1) / 2)); count <= max; count++) {
+                let temp = array[count];
+                //temporary variable to don't lose value
+                array[count] = array[array.length - 1 - count];
+                array[array.length - 1 - count] = temp;
+            }
+        }
+
+        let firstArray = [1, 2, 3, 4, 5, 6, 7];
+        let reversedNewArray = reverseArray(firstArray);
+        console.log(reversedNewArray);
+        console.log(firstArray);
+
+        let secondArray = [10, 20, 30, 40, 50, 60, 70];
+        let reversedSecondArray = reverseArrayAnotherWay(secondArray);
+        console.log(reversedSecondArray);
+        console.log(secondArray);
+
+        let thirdArray = [101, 102, 103, 104, 105, 106]
+        console.log(thirdArray);
+        reverseArrayInPlace(thirdArray);
+        console.log(thirdArray);
+
+    </script>
+</body>
+
+</html>

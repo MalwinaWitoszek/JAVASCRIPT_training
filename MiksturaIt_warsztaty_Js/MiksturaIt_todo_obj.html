@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>MiksturaIt Js exercises</title>
+</head>
+
+<body>
+  <p>check console :)</p>
+
+  <script>
+
+    const todoList = {
+      tasks: [],
+      addTask(task) { this.tasks.push(task) },
+      addUrgentTask(task) { this.tasks.unshift(task) },
+      nextTask() { return this.tasks.shift() },
+      changeTask() {
+        let lastTask = this.tasks.pop();
+        this.addUrgentTask(lastTask);
+      },
+      delateTask(index) {
+        return this.tasks.splice(index, 1)
+      }
+    }
+
+    todoList.tasks = ['zad1', 'zad2', 'zad3', 'zad4']
+    todoList.addTask('zad5');
+    todoList.addTask('zad6');
+    todoList.addUrgentTask('Important');
+    console.log('dodanie zadan zwykłych i zadania pilnego:');
+    console.log(todoList.tasks);
+    let task = todoList.nextTask();
+    console.log('wybranie pierwszego zadania do wykonania według listy:');
+    console.log(task);
+    todoList.changeTask();
+    console.log('lista po zamianie zadania ostatniego na pilne:');
+    console.log(todoList.tasks);
+    let delatedTask = todoList.delateTask(3);
+    console.log('lista po usunieciu zadania:');
+    console.log(todoList.tasks);
+    console.log('usuniete zadanie:');
+    console.log(delatedTask);
+
+  </script>
+</body>
+
+</html>

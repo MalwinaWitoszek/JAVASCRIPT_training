@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>MiksturaIt Js exercises</title>
+</head>
+
+<body>
+  <p>check console :)</p>
+
+  <script>
+
+    //      Average creation year for living and dead scripts
+
+    let SCRIPTS = [
+      {
+        name: "Adlam",
+        ranges: [[125184, 125259], [125264, 125274], [125278, 125280]],
+        direction: "rtl",
+        year: 1987,
+        living: true,
+        link: "https://en.wikipedia.org/wiki/Fula_alphabets#Adlam_alphabet"
+      },
+      {
+        name: "Kannada",
+        ranges: [[3200, 3204], [3205, 3213], [3214, 3217], [3218, 3241], [3242, 3252], [3253, 3258], [3260, 3269], [3270, 3273], [3274, 3278], [3285, 3287], [3294, 3295], [3296, 3300], [3302, 3312], [3313, 3315]],
+        direction: "ltr",
+        year: 450,
+        living: true,
+        link: "https://en.wikipedia.org/wiki/Kannada_alphabet"
+      },
+      {
+        name: "Kaithi",
+        ranges: [[69760, 69826]],
+        direction: "ltr",
+        year: 1550,
+        living: false,
+        link: "https://en.wikipedia.org/wiki/Kaithi"
+      },
+      {
+        name: "Tai Tham",
+        ranges: [[6688, 6751], [6752, 6781], [6783, 6794], [6800, 6810], [6816, 6830]],
+        direction: "ltr",
+        year: 1300,
+        living: true,
+        link: "https://en.wikipedia.org/wiki/Tai_Tham_alphabet"
+      },
+      {
+        name: "Lao",
+        ranges: [[3713, 3715], [3716, 3717], [3719, 3721], [3722, 3723], [3725, 3726], [3732, 3736], [3737, 3744], [3745, 3748], [3749, 3750], [3751, 3752], [3754, 3756], [3757, 3770], [3771, 3774], [3776, 3781], [3782, 3783], [3784, 3790], [3792, 3802], [3804, 3808]],
+        direction: "ltr",
+        year: 1350,
+        living: true,
+        link: "https://en.wikipedia.org/wiki/Lao_alphabet"
+      },
+      {
+        name: "Latin",
+        ranges: [[65, 91], [97, 123], [170, 171], [186, 187], [192, 215], [216, 247], [248, 697], [736, 741], [7424, 7462], [7468, 7517], [7522, 7526], [7531, 7544], [7545, 7615], [7680, 7936], [8305, 8306], [8319, 8320], [8336, 8349], [8490, 8492], [8498, 8499], [8526, 8527], [8544, 8585], [11360, 11392], [42786, 42888], [42891, 42927], [42928, 42936], [42999, 43008], [43824, 43867], [43868, 43877], [64256, 64263], [65313, 65339], [65345, 65371]],
+        direction: "ltr",
+        year: -700,
+        living: false,
+        link: "https://en.wikipedia.org/wiki/Latin_script"
+      },
+      {
+        name: "Lepcha",
+        ranges: [[7168, 7224], [7227, 7242], [7245, 7248]],
+        direction: "ltr",
+        year: 1700,
+        living: true,
+        link: "https://en.wikipedia.org/wiki/Lepcha_alphabet"
+      },
+      {
+        name: "Limbu",
+        ranges: [[6400, 6431], [6432, 6444], [6448, 6460], [6464, 6465], [6468, 6480]],
+        direction: "ltr",
+        year: 1740,
+        living: true,
+        link: "https://en.wikipedia.org/wiki/Limbu_alphabet"
+      },
+      {
+        name: "Linear A",
+        ranges: [[67072, 67383], [67392, 67414], [67424, 67432]],
+        direction: "ltr",
+        year: -2500,
+        living: false,
+        link: "https://en.wikipedia.org/wiki/Linear_A"
+      },
+      {
+        name: "Linear B",
+        ranges: [[65536, 65548], [65549, 65575], [65576, 65595], [65596, 65598], [65599, 65614], [65616, 65630], [65664, 65787]],
+        direction: "ltr",
+        year: -1450,
+        living: false,
+        link: "https://en.wikipedia.org/wiki/Linear_B"
+      },
+      {
+        name: "Lisu",
+        ranges: [[42192, 42240]],
+        direction: "ltr",
+        year: 1915,
+        living: true,
+        link: "https://en.wikipedia.org/wiki/Fraser_alphabet"
+      },
+      {
+        name: "Lycian",
+        ranges: [[66176, 66205]],
+        direction: "ltr",
+        year: -500,
+        living: false,
+        link: "https://en.wikipedia.org/wiki/Lycian_alphabet"
+      },
+      {
+        name: "Lydian",
+        ranges: [[67872, 67898], [67903, 67904]],
+        direction: "rtl",
+        year: -700,
+        living: false,
+        link: "https://en.wikipedia.org/wiki/Lydian_alphabet"
+      },
+      {
+        name: "Mahajani",
+        ranges: [[69968, 70007]],
+        direction: "ltr",
+        year: 1150,
+        living: false,
+        link: "https://en.wikipedia.org/wiki/Mahajani"
+      },
+      {
+        name: "Mandaic",
+        ranges: [[2112, 2140], [2142, 2143]],
+        direction: "rtl",
+        year: 200,
+        living: true,
+        link: "https://en.wikipedia.org/wiki/Mandaic_alphabet"
+      },
+      {
+        name: "Manichaean",
+        ranges: [[68288, 68327], [68331, 68343]],
+        direction: "rtl",
+        year: 250,
+        living: false,
+        link: "https://en.wikipedia.org/wiki/Manichaean_alphabet"
+      },
+      {
+        name: "Marchen",
+        ranges: [[72816, 72848], [72850, 72872], [72873, 72887]],
+        direction: "ltr",
+        year: 650,
+        living: false,
+        link: "https://en.wikipedia.org/wiki/Zhang-Zhung_language#Scripts"
+      },
+      {
+        name: "Mende Kikakui",
+        ranges: [[124928, 125125], [125127, 125143]],
+        direction: "rtl",
+        year: 1880,
+        living: true,
+        link: "https://en.wikipedia.org/wiki/Mende_Kikakui_script"
+      }
+    ];
+
+
+
+    const average = (array) => {
+      return (Math.round(array.reduce((result, nextNumber) => result + nextNumber, 0) / array.length))
+}
+
+    let arrayLiving = [],
+      arrayDead = [];
+    // getting an array of creation years for LIVING scripts
+    SCRIPTS
+      .filter(({ living }) => living === true)
+      .forEach(({ year }) => arrayLiving.push(year));
+
+    // getting an array of creation years for DEAD scripts
+    SCRIPTS
+      .filter(({ living }) => living === false)
+      .forEach(({ year }) => arrayDead.push(year));
+
+    // calculation of the average year
+    console.log('Average creation year is ' + average(arrayLiving) + ' and ' + average(arrayDead) + ' for dead script');
+
+
+
+
+  </script>
+</body>
+
+</html>

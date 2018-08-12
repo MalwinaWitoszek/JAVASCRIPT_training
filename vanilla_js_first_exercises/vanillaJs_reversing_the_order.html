@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS cwiczenia</title>
+</head>
+
+<body>
+    <script>
+
+        //                                 ODWROCENIE KOLEJNOSCI
+
+        var ileWartosci = parseInt(prompt('podaj ilosc elementów: '))
+        var TablicaWartosci = new Array(ileWartosci);
+        for (i = 0; i < ileWartosci; i++) {
+            TablicaWartosci[i] = prompt("podaj " + (i + 1) + " wartość");
+        }
+        TablicaWartosci.reverse();
+        document.write("Twoje wartosci w odwrotnej kolejnosci to: <br>")
+        for (i = 0; i < ileWartosci; i++) {
+            document.write(TablicaWartosci[i] + "<br>");
+        }
+    </script>
+</body>
+
+</html>

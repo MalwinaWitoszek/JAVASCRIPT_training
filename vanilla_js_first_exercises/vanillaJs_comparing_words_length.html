@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS cwiczenia</title>
+</head>
+
+<body>
+    <script>
+
+        //                             POROWNANIE DLUGOSCI WYRAZOW
+
+        var string1 = prompt("podaj pierwsze wyrażenie");
+        var string2 = prompt("podaj drugie wyrażenie");
+        function porownanie() {
+            if (string1.length > string2.length) { return "dłuższe od wyrażenia drugiego: " }
+            else if (string1.length < string2.length) { return "krótsze od drugiego wyrażenia: " }
+            else { return "tej samej długości co wyrażenie drugie: " }
+        }
+        document.write("pierwsze wyrażenie: " + string1.toUpperCase() + " jest " + porownanie() + string2.toUpperCase());
+
+
+
+    </script>
+</body>
+
+</html>

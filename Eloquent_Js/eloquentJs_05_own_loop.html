@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Eloquent Js</title>
+</head>
+
+<body>
+    <p>check console :)</p>
+
+    <script>
+
+        //    Write a higher-order function loop that provides something like
+        //    a for loop statement. It takes a value, a test function,
+        //    an update function, and a body function. Each iteration,
+        //    it first runs the test function on the current loop value and stops
+        //    if that returns false. Then it calls the body function,
+        //    giving it the current value. Finally, it calls the update function
+        //    to create a new value and starts from the beginning.
+
+        const forLoop = (value, testF, updateF, bodyF) => {
+            for (let count = value; testF(count); count = updateF(count)) {
+                bodyF(count);
+            }
+        }
+
+        forLoop(3, n => n > 0, n => n - 1, console.log);
+
+
+    </script>
+</body>
+
+</html>

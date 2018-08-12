@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS cwiczenia</title>
+</head>
+
+<body>
+    <script>
+
+
+
+         //                              TABLICZKA MNOZENIA
+
+        var iloscLiczb=prompt("podaj liczbe do ktorej chcesz mnozyc");
+        var tabliczka=new Array(iloscLiczb);
+        document.write("twoja tabliczka mnozenia wyglada nastepująco: <br>");
+
+        for (i=0;i<iloscLiczb;i++){
+            tabliczka[i]=new Array(iloscLiczb);
+            for(j=0;j<iloscLiczb;j++){
+                tabliczka[i][j]=(i+1)*(j+1);
+                document.write(tabliczka[i][j]+"\t\t\t")
+            }
+            document.write("<br>")
+        }
+        var czynnik1=prompt("podaj pierwsza liczbe");
+        var czynnik2=prompt("podaj druga liczbe");
+        var iloczyn=tabliczka[czynnik1-1][czynnik2-1];
+        document.write("iloczyn "+ czynnik1+ " i "+czynnik2+" wynosi: "+iloczyn)
+
+    </script>
+</body>
+
+</html>

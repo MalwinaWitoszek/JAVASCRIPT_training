@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Eloquent Js</title>
+</head>
+
+<body>
+    <p>check console :)</p>
+
+    <script>
+
+        //          DEEP COMPARISON
+
+        // Write a function deepEqual that takes two values and returns true only
+        // if they are the same value or are objects with the same properties,
+        // where the values of the properties are equal when compared with a recursive call
+        // to deepEqual.
+
+
+        function deepEqual(first, second) {
+            // 1. condition for different types of input parameters
+            if (typeof (first) !== typeof (second))
+                return false;
+
+            // 2. condition for an exception because null returns type "object"
+            if ((typeof (first) == 'object' && second === null) || (typeof (second) == 'object' && first === null))
+                return false;
+
+            //3. condition for checking if parameters are objects
+            if (typeof (first) == 'object') {
+                //get the array of keys of object
+                let keysOfFirst = Object.keys(first);
+                let keysOfSecond = Object.keys(second);
+                keysOfFirst.sort();
+                keysOfSecond.sort();
+                //3a.condition for different number of keys
+                if (keysOfFirst.length != keysOfSecond.length)
+                    return false;
+                //3b.condition for different key names
+                if (!keysOfFirst.every((value, index) => value === keysOfSecond[index]))
+                    return false;
+
+                //3c.comparing values for the same keys
+                for (let key in first) {
+                    let val1 = first[key];
+                    let val2 = second[key];
+                    // 3c-1.checking if the values are different and no one is a nested object
+                    if (val1 !== val2 && (typeof (val1) !== 'object' || typeof (val1) !== 'object'))
+                        return false;
+                    //3c-2. when the value is a nested object (recursion)
+                    if (typeof (val1) === 'object') {
+                        if (!deepEqual(val1, val2))
+                            return false;
+                    }
+                }  // end of for..in loop
+                //3d. when the values are equal and no one is a nested object
+                return true;
+            }  //end of 3.
+
+            //4. if parameters passed all the above conditions they can be directly compared
+            if (first == second)
+                return true;
+            return false;
+        }
+
+        //  CHECKING THE deepEqual FUNCTION
+        let a = 4;
+        let b = 4;
+        console.log('porownanie 1: ' + deepEqual(a, b))
+
+        let aa = 88;
+        let bb = '88';
+        console.log('porownanie 2: ' + deepEqual(aa, bb))
+
+        let aaa = null;
+        let bbb = { c: 3 };
+        console.log('porownanie 3: ' + deepEqual(aaa, bbb))
+
+        let aaaa = 'aax';
+        let bbbb = 'aax';
+        console.log('porownanie 4: ' + deepEqual(aaaa, bbbb))
+
+        let obj1 = {
+            val1: '1',
+            val2: {
+                val4: true,
+                val5: 5,
+                val6: {
+                    val7: 7,
+                    val8: 8
+}
+            },
+            val3: 3
+        }
+        let obj2 = {
+            val2: {
+                val4: true,
+                val5: 5,
+                val6: {
+                    val7: 7,
+                    val8: 8
+                }
+            },
+            val3: 3,
+            val1: '1'
+        }
+        console.log('porownanie 5: ' + deepEqual(obj1, obj2))
+
+        let obj = { here: { is: "an" }, object: 2 };
+        console.log(deepEqual(obj, obj));
+        console.log(deepEqual(obj, { here: 1, object: 2 }));
+        console.log(deepEqual(obj, { here: { is: "an" }, object: 2 }));
+
+
+    </script>
+</body>
+
+</html>

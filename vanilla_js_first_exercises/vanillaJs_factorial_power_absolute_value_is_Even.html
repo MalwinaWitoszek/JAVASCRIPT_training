@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS cwiczenia</title>
+</head>
+
+<body>
+    <p>check console :)</p>
+
+    <script>
+
+        //                                  ABSOLUTE VALUE
+
+        function absolute(number) {
+            if (number < 0) {
+                number = -(number);
+            } else {
+                number = number;
+            };
+            return number;
+        }
+        x = absolute(8);
+        y = absolute(-5);
+        console.log('wartosc bezgledna liczby 8 wynosi: ' + x);
+        console.log('wartosc bezgledna liczby -5 wynosi: ' + y);
+
+
+
+        //                                 FACTORIAL
+
+        function silnia(n) {
+            var wynik = 1;
+            for (i = 1; i <= n; i++) {
+                wynik *= i;
+            }
+            console.log(n + ' silnia wynosi: ' + wynik);
+        }
+        silnia(4);
+
+        function silnia_rekurencja(n) {
+
+            if (n === 0) {
+                return 1;
+            } else {
+                return n * silnia_rekurencja(n - 1);
+            }
+        }
+        var wynik = silnia_rekurencja(5);
+        console.log('5 silnia rekurencyjnie wynosi: ' + wynik);
+
+
+
+        //                                   POWER
+
+        function potega(x, n) {
+            if (n === 0) {
+                return 1;
+            }
+            else {
+                return x * potega(x, n - 1);
+            }
+        }
+        console.log('2 do potęgi 8 wynosi: ' + potega(2,8));
+
+
+        //                               EVEN or ODD
+
+
+
+        function czyParzysta(x) {
+            if (x % 2 == 0) {
+                console.log("liczba " + x + " jest parzysta")
+            }
+            else {
+                console.log("liczba " + x + " jest nieparzysta")
+            }
+        }
+        console.log(czyParzysta(7));
+        console.log(czyParzysta(-4));
+
+
+
+    </script>
+</body>
+
+</html>

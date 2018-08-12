@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS cwiczenia</title>
+</head>
+
+<body>
+    <script>
+
+        //                           ILE ZYJESZ DNI
+
+        var birthDay = Number(prompt("podaj dzien urodzin"));
+        var birthMonth = Number(prompt("podaj miesiac urodzin"));
+        var birthYear = Number(prompt("podaj rok urodzin"));
+        var today = new Date();
+        var presentDay = today.getDate();
+        var presentMonth = today.getUTCMonth();
+        presentMonth += 1;
+        var presentYear = today.getUTCFullYear();
+        var result;
+        function daysCounter(day, month, year)    //counting days from year 0 to indicated date
+        {
+            result = day;
+            switch (month) {
+                case 1:
+                    break;
+                case 2:
+                    result = result + 31;
+                    break;
+                case 3:
+                    result = result + 31 + 28;
+                    break;
+                case 4:
+                    result = result + 31 + 28 + 31;
+                    break;
+                case 5:
+                    result = result + 31 + 28 + 31 + 30;
+                    break;
+                case 6:
+                    result = result + 31 + 28 + 31 + 30 + 31;
+                    break;
+                case 7:
+                    result = result + 31 + 28 + 31 + 30 + 31 + 30;
+                    break;
+                case 8:
+                    result = result + 31 + 28 + 31 + 30 + 31 + 30 + 31;
+                    break;
+                case 9:
+                    result = result + 31 + 28 + 31 + 30 + 31 + 30 + 31 + 31;
+                    break;
+                case 10:
+                    result = result + 31 + 28 + 31 + 30 + 31 + 30 + 31 + 31 + 30;
+                    break;
+                case 11:
+                    result = result + 31 + 28 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31;
+                    break;
+                case 12:
+                    result = result + 31 + 28 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31 + 30;
+                    break;
+                default:
+                    break;
+            }
+            result = result + 365 * year + Math.floor((year / 4))
+            return result;
+        }
+        var daysToBirth = daysCounter(birthDay, birthMonth, birthYear); //counting days from year 0 to birthday
+        var daysToToday = daysCounter(presentDay, presentMonth, presentYear);  //counting days from year 0 to Today
+        document.write("żyjesz już na tym pięknym świecie aż " + (daysToToday - daysToBirth) + " dni!");
+
+
+    </script>
+</body>
+
+</html>

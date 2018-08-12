@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS cwiczenia</title>
+</head>
+
+<body>
+    <script>
+
+
+        //                                  ŚREDNIA WAŻONA
+
+        var il_k = prompt("podaj ilosc ocen z kartkowek"), wK = prompt("podaj wage ocen z kartkowek"), il_z = prompt("podaj ilosc ocen z zadan"), wZ = prompt("podaj wage ocen z zadan"), il_s = prompt("podaj ilosc ocen ze sprawdzianow"), wS = prompt("podaj wage ocen ze sprawdzianow"), wynik;
+        var suma_ocen_zadan = 0;
+        var suma_ocen_kartkowek = 0;
+        var suma_ocen_sprawdz = 0;
+        function sredniaWazona(z, k, s) { //(ilosc zadan,ilosc kartk, ilosc spr)
+            for (i = 0; i < z; i++) {  //zebranie iformacji o ocenach z zadan i zapis sumy
+                var kolejnaOcena = prompt("podaj ocene z zadania");
+                suma_ocen_zadan += Number(kolejnaOcena);
+                console.log(suma_ocen_zadan);
+            }
+            for (i = 0; i < k; i++) {  //zebranie iformacji o ocenach z kartkowek,zapis sumy
+                var kolejnaOcena = prompt("podaj ocene z kartkowki");
+                suma_ocen_kartkowek += Number(kolejnaOcena);
+                console.log(suma_ocen_kartkowek);
+            }
+            for (i = 0; i < s; i++) {  //zebranie iformacji o ocenach z sprawdz,zapis sumy
+                var kolejnaOcena = prompt("podaj ocene ze sprawdzianu");
+                suma_ocen_sprawdz += Number(kolejnaOcena);
+                console.log(suma_ocen_sprawdz);
+            }
+            wynik = ((wZ * suma_ocen_zadan + wK * suma_ocen_kartkowek + wS * suma_ocen_sprawdz) / (il_z * wZ + il_k * wK + il_s * wS));
+            return wynik;
+        }
+        sredniaWazona(il_z, il_k, il_s);
+        document.write("Srednia wazona z Twoich ocen wynosi: " + wynik.toFixed(1));
+
+
+
+    </script>
+</body>
+
+</html>

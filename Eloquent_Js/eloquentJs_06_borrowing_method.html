@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Eloquent Js</title>
+</head>
+
+<body>
+    <p>check console :)</p>
+
+    <script>
+
+        // Write a way to call hasOwnProperty on an object that has its
+        // own property by that name
+
+        let map = { one: true, two: true, hasOwnProperty: true };
+
+        console.log(Object.prototype.hasOwnProperty.call(map, 'one'))
+        console.log(Object.prototype.hasOwnProperty.call(map, 'five'))
+        console.log(Object.prototype.hasOwnProperty.call(map, 'hasOwnProperty'))
+        console.log(Object.prototype.hasOwnProperty.call(map, 'name'))
+
+
+    </script>
+</body>
+
+</html>

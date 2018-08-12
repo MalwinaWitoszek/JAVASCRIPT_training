@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Eloquent Js</title>
+</head>
+
+<body>
+    <p>check console :)</p>
+
+    <script>
+
+        // Write a class called Group (since Set is already taken).
+        // Like Set, it has add, delete, and has methods. Its constructor
+        // creates an empty group, add adds a value to the group
+        // (but only if it isn’t already a member), delete removes
+        // its argument from the group (if it was a member),
+        // and has returns a Boolean value indicating whether its argument
+        // is a member of the group.
+        // Give the class a static from method that takes an iterable object
+        // as argument and creates a group that contains all the values produced
+        // by iterating over it
+        // And next make the Group class from the previous exercise iterable
+
+        class Group {
+            constructor(iterable) {   //create an empty group of members
+                this.members = [];
+                if (iterable) {
+                    for (let value of iterable) {
+                        this.add(value);
+                    }
+                }
+            }
+
+            add(value) { //add a value to the group only if it isn’t already a member
+                if (this.members.indexOf(value) === -1) {
+                    this.members.push(value)
+                }
+            }
+
+            delete(value) { //remove argument from the group if it was a member
+                let index = this.members.indexOf(value)
+                if (index !== -1) {
+                    this.members.splice(index, 1)
+                }
+            }
+
+            has(value) {  //check if argument is a member of the group and returns a Boolean value
+                return this.members.indexOf(value) === -1 ? false : true;
+            }
+
+            static from(iterable) { //take an iterable object and create a group that contains all the values produced by iterating over it
+                return new Group(iterable);
+            }
+
+            [Symbol.iterator]() {
+                let index = 0;
+
+                return {
+                    next: () => {
+                        if (index < this.members.length) {
+                            return { value: this.members[index++], done: false }
+                        } else {
+                            index = 0;
+                            return { done: true }
+                        }
+                    }
+                }
+            }
+        }
+
+
+        //check
+        let group = Group.from([10, 20, { name: 'boo' }]);
+        console.log(group);
+        console.log(group.has(10));
+        console.log(group.has(30));
+        group.add(10);
+        console.log(group);
+        group.delete(10);
+        console.log(group.has(10));
+        // check itarator
+        for (let value of Group.from(["a", "b", "c"])) {
+            console.log(value);
+        }
+
+
+    </script>
+</body>
+
+</html>

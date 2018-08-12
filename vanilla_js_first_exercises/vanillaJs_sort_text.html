@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS cwiczenia</title>
+</head>
+
+<body>
+    <p>check console :)</p>
+
+    <script>
+
+        //              POSORTOWANIE I WYPISANIE TEKSTU
+
+        const str = "Ania|Marcin|Bartek|Piotr|Kuba|Beata|Agnieszka", myChar = "|";
+
+        function segregate(text, spaceChar) {
+            let wordsTable = text.split(spaceChar);
+            wordsTable.sort();
+            let joinText = wordsTable.join(spaceChar);
+            return joinText;
+        }
+        let mine = segregate(str, myChar);
+        console.log(mine);
+
+
+    </script>
+</body>
+
+</html>

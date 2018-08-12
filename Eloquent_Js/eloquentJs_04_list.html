@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Eloquent Js</title>
+</head>
+
+<body>
+    <p>check console :)</p>
+
+    <script>
+
+        // Write a function arrayToList that builds up a list structure like the one
+        // shown when given [1, 2, 3] as argument.Also write a listToArray function
+        // that produces an array from a list.Then add a helper function prepend,
+        // which takes an element and a list and creates a new list that adds
+        // the element to the front of the input list, and nth, which takes a list
+        // and a number and returns the element at the given position in the list
+        // (with zero referring to the first element) or undefined when there is no
+        // such element.
+
+
+        function arrayToList(array) {
+            let max = array.length - 1,
+                list = {   //prepare last part of list
+                    value: array[max],
+                    rest: null
+                };
+            for (let count = max - 1; count >= 0; count--) {
+                let temp = list;
+                list = {
+                    value: array[count],
+                    rest: temp
+                }
+            }
+            return list;
+        }
+
+        // arrayToList second version - using function prepend()
+        function arrayToList2(array) {
+            let max = array.length - 1,
+                list = prepend(array[max], null);
+            for (let count = max - 1; count >= 0; count--) {
+                let temp = list;
+                list = {
+                    value: array[count],
+                    rest: temp
+                }
+            }
+            return list;
+        }
+
+        function listToArray(list) {
+            let array = [];
+            for (let subList = list; subList; subList = subList.rest) {
+                array.push(subList.value);
+            }
+            return array;
+        }
+
+        function prepend(addValue, list) {
+            let temp = list;
+            temp = {
+                value: addValue,
+                rest: list
+            }
+            return temp;
+        }
+
+        function nth(list, index) {
+            let array = listToArray(list);
+            if (index < array.length && index >= 0) return array[index];
+            return undefined;
+        }
+
+
+        //    function arrayToList check
+        let arr = [1, 2, 3, 4, 5];
+        let arrToList = arrayToList(arr);
+        console.log('arrToList = ' + JSON.stringify(arrToList, null, 2));
+
+        //    function arrayToList2 check
+        let arr2 = [111, 222, 333, 444];
+        let arrToList2 = arrayToList2(arr2);
+        console.log('arrToList2 = ' + JSON.stringify(arrToList2, null, 2));
+
+        //    function listToArray check
+        let listToArr = listToArray(arrToList);
+        console.log('listToArr = [' + listToArr + ']');
+
+        //    function prepend check
+        let increasedList = prepend(6, arrToList);
+        console.log('increasedList = ' + JSON.stringify(increasedList, null, 2));
+
+        //    function nth check
+        let elementAtPosition = nth(arrayToList2(['a', 'b', 'c', 'd', 'e']), 2);
+        console.log(elementAtPosition);
+        let elementAtPosition2 = nth(arrayToList2(['a', 'b', 'c', 'd']), 4);
+        console.log(elementAtPosition2);
+
+
+        console.log(arrayToList([10, 20]));
+        console.log(listToArray(arrayToList([10, 20, 30])));
+        console.log(prepend(10, prepend(20, null)));
+        console.log(nth(arrayToList([10, 20, 30]), 1));
+
+
+    </script>
+</body>
+
+</html>
